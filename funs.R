@@ -1,12 +1,12 @@
 # utility function collection
 aggregate2 = function(formula,df,fun,new.names=NULL){
-  x = as.data.frame(aggregate(formula,aus,fun))
+  x = as.data.frame(aggregate(formula,df,fun))
   ncols = ncol(x)
   if(!is.null(new.names)){
     names(x) = new.names
   }
-  x$len = aggregate(formula,aus,length)[[ncols]]
-  x$sd = aggregate(formula,aus,sd)[[ncols]]
+  x$len = aggregate(formula,df,length)[[ncols]]
+  x$sd = aggregate(formula,df,sd)[[ncols]]
   x$se = x$sd/sqrt(x$len)
   return(x)
 }
