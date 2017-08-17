@@ -1,5 +1,5 @@
 # utility function collection
-aggregate2 = function(formula,df,fun,new.names=NULL){
+aggregate2 = function(formula,df,fun=mean,new.names=NULL){
   x = as.data.frame(aggregate(formula,df,fun))
   ncols = ncol(x)
   if(!is.null(new.names)){
